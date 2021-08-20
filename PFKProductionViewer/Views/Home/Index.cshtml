@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 main-page-title">Производство</h1>
+    <div class="text-center">
+        <div class="text-center main-menu-button-conatiner">
+            <button type="button" class="btn btn-primary main-menu-button" onclick="location.href='@Url.Action("Current","RauteVE")'">Raute VE Текущая смена</button>
+        </div>
+        <div class="text-center main-menu-button-conatiner">
+            <button type="button" class="btn btn-primary main-menu-button" onclick="location.href='@Url.Action("Previous","RauteVE")'">Raute VE Предыдущая Смена</button>
+        </div>
+    </div>
+</div>

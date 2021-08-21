@@ -22,31 +22,6 @@ namespace PFKProductionViewer.Models
         {
         }
 
-        public static List<BinsActual> GetAllBins(string connectionString)
-        {
-            using (var context = new LatheContext(connectionString))
-            {
-                return context.BinsActuals.ToList();
-            }
-        }
-
-        public static List<ShiftActual> GetAllShiftsActual(string connectionString)
-        {
-            using (var context = new LatheContext(connectionString))
-            {
-                return context.ShiftActuals.ToList();
-            }
-        }
-
-        public static List<ShiftPreviou> GetAllShiftsPrevious(string connectionString)
-        {
-            using (var context = new LatheContext(connectionString))
-            {
-                return context.ShiftPrevious.ToList();
-            }
-        }
-
-
         public virtual DbSet<BinsActual> BinsActuals { get; set; }
         public virtual DbSet<ShiftActual> ShiftActuals { get; set; }
         public virtual DbSet<ShiftPreviou> ShiftPrevious { get; set; }

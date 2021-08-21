@@ -1,2 +1,55 @@
 ﻿@model RauteChurakViewModel
-<h1>RauteShurak</h1>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr style="text-align: left;">
+            <th scope="col">Наименование</th>
+            <th scope="col">Значение</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-info" style="text-align: left;">
+            <td>Количество (шт)</td>
+            <td>@Model.ColBlock</td>
+        </tr>
+        <tr class="table-info" style="text-align: left;">
+            <td>Средний диаметр (мм)</td>
+            <td>@Model.MediumDBlock</td>
+        </tr>
+        <tr class="table-info" style="text-align: left;">
+            <td>Объем (м.куб)</td>
+            <td>@Model.VBlock</td>
+        </tr>
+        <tr class="table-info" style="text-align: left;">
+            <td>Объем оцилиндровки (м.куб)</td>
+            <td>@Model.VCil</td>
+        </tr>
+        <tr class="table-info" style="text-align: left;">
+            <td>Объем карандаша (м.куб)</td>
+            <td>@Model.VCore</td>
+        </tr>
+        <tr class="table-info" style="text-align: left;">
+            <td>Потери на оцилиндровке (%)</td>
+            <td>@Model.LossCil</td>
+        </tr>
+        <tr class="table-info" style="text-align: left;">
+            <td>Потери на карандаше (%)</td>
+            <td>@Model.LossCore</td>
+        </tr>
+        <tr class="table-info" style="text-align: left;">
+            <td>Диаметр карандаша ср. (м.куб)</td>
+            <td>@Model.MediumDCore</td>
+        </tr>
+        <tr class="table-danger" style="text-align: left;">
+            <td>Потери (%)</td>
+            <td>@Model.PercentLossVeneer</td>
+        </tr>
+        <tr class="table-danger" style="text-align: left;">
+            <td>Расход</td>
+            <td>@Model.RateMedium</td>
+        </tr>
+        <tr style="text-align: left;">
+            <td>Толщина шпона (мм)</td>
+            <td>@Model.Thickness</td>
+        </tr>
+    </tbody>
+</table>

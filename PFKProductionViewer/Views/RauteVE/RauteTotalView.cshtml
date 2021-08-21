@@ -1,3 +1,32 @@
 ﻿@model RauteTotalViewModel
-<h1>RauteTOTAL</h1>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr style="text-align: left;">
+            <th scope="col">Наименование</th>
+            <th scope="col">Пакеты (шт)</th>
+            <th scope="col">Листы (шт)</th>
+            <th scope="col">Обьем (м.куб)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-success" style="text-align: left;">
+            <td>Квадрат</td>
+            <td>@Model.SquarePacks</td>
+            <td>@Model.SquareSheets</td>
+            <td>@Model.SquareVolume</td>
+        </tr>
+        <tr class="table-info" style="text-align: left;">
+            <td>Большой формат</td>
+            <td>@Model.BigFormatPacks</td>
+            <td>@Model.BigFormatSheets</td>
+            <td>@Model.BigFormatVolume</td>
+        </tr>
+        <tr class="table-warning" style="text-align: left;">
+            <td>Всего</td>
+            <td>@Model.TotalPacks</td>
+            <td>@Model.OveralCollList</td>
+            <td>@Model.OveralVList</td>
+        </tr>
+    </tbody>
+</table>
 

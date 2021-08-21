@@ -1,4 +1,5 @@
-﻿function navLinkOnClick(el) {
+﻿var selectedViewTabId = "", selectedRoute = "";
+function navLinkOnClick(el) {
     console.log(el);
 }
 function UpdateRauteContent(route, divId) {
@@ -13,6 +14,7 @@ function UpdateRauteContent(route, divId) {
         }
     });
 }
+
 function tabLinkOnClick(event) {
     var div = event.target;
     var elementId = div.href.split("#")[1];
@@ -26,10 +28,20 @@ function tabLinkOnClick(event) {
         route = "RauteShponView"
 
     UpdateRauteContent(route, elementId);
+    selectedViewTabId = elementId;
+    selectedRoute = route;
 }
+
+function SelectedTabUpdater() {
+    UpdateRauteContent(selectedRoute, selectedViewTabId);
+    console.log(selectedViewTabId + " updated.");
+}
+
 jQuery(document).ready(function ($) {
     $('#tabs').tab();
     $('.raute-tab-link').click(tabLinkOnClick);
-    UpdateRauteContent("RauteTotalView", "total");
-    //setInterval(UpdateContent, 1000);
+    selectedViewTabId = "total";
+    selectedRoute = "RauteTotalView";
+    UpdateRauteContent(selectedRoute, selectedViewTabId);
+    setInterval(SelectedTabUpdater, 1000);
 });

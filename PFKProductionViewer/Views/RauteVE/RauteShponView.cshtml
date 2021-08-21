@@ -1,2 +1,31 @@
 ﻿@model RauteShponViewModel
-<h1>RauteShpon</h1>
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr style="text-align: left;">
+            <th scope="col">Наименование</th>
+            <th scope="col">Пакеты (шт)</th>
+            <th scope="col">Листы (шт)</th>
+            <th scope="col">Обьем (м.куб)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-success" style="text-align: left;">
+            <td>Стол 1</td>
+            <td>@Model.CollPack11</td>
+            <td>@Model.OveralCollList11</td>
+            <td>@Model.OveralVList11</td>
+        </tr>
+        <tr class="table-danger" style="text-align: left;">
+            <td>Стол 2</td>
+            <td>@Model.CollPack12</td>
+            <td>@Model.OveralCollList12</td>
+            <td>@Model.OveralVList12</td>
+        </tr>
+        <tr class="table-warning" style="text-align: left;">
+            <td>Стол 3</td>
+            <td>@Model.CollPack13</td>
+            <td>@Model.OveralCollList13</td>
+            <td>@Model.OveralVList13</td>
+        </tr>
+    </tbody>
+</table>

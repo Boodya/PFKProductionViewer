@@ -28,6 +28,11 @@ namespace PFKProductionViewer.Controllers
             return View("RauteVECurrent", _dbData.GetContext());
         }
 
+        public IActionResult Previous()
+        {
+            return View("RauteVEPrevious", _dbData.GetContext());
+        }
+
         [HttpGet]
         public ActionResult RauteVECurrent()
         {
@@ -37,33 +42,38 @@ namespace PFKProductionViewer.Controllers
         [HttpGet]
         public ActionResult RauteVEPrevious()
         {
-            return PartialView("RauteVEPrevious", _dbData.GetContext());
-        }
-
-        public IActionResult Previous()
-        {
-            return View("RauteVEPrevious", _dbData.GetContext());
+            return PartialView("RauteVEPrevious", 
+                _dbData.GetContext());
         }
 
         [HttpGet]
         public ActionResult RauteTotalView()
         {
-            return PartialView("RauteTotalView", new RauteTotalViewModel());
+            return PartialView("RauteTotalView", 
+                new RauteTotalViewModel(_dbData.GetContext()
+                    .ShiftActuals.FirstOrDefault()));
         }
         [HttpGet]
         public ActionResult RauteTableView()
         {
-            return PartialView("RauteTableView", new RauteTableViewModel());
+            return PartialView("RauteTableView", 
+                _dbData.GetContext().BinsActuals.FirstOrDefault());
         }
         [HttpGet]
         public ActionResult RauteChurakView()
         {
-            return PartialView("RauteChurakView", new RauteChurakViewModel());
+            var context = _dbData.GetContext();
+            return PartialView("RauteChurakView", 
+                new RauteChurakViewModel(
+                    context.ShiftActuals.FirstOrDefault(),
+                    context.BinsActuals.FirstOrDefault()));
         }
         [HttpGet]
         public ActionResult RauteShponView()
         {
-            return PartialView("RauteShponView", new RauteShponViewModel());
+            return PartialView("RauteShponView", 
+                new RauteShponViewModel(_dbData.GetContext()
+                    .ShiftActuals.FirstOrDefault()));
         }
     }
 }

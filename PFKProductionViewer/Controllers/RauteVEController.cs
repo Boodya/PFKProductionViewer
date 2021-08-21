@@ -20,59 +20,39 @@ namespace PFKProductionViewer.Controllers
 
         public IActionResult Index(string type)
         {
+            if (type == "Current")
+                ViewData["PageHead"] = "Текущая смена";
+            else if(type == "Previous")
+                ViewData["PageHead"] = "Предыдущая смена";
             return View("RauteVE");
         }
 
-        public IActionResult Current()
-        {
-            return View("RauteVECurrent", _dbData.GetContext());
-        }
-
-        public IActionResult Previous()
-        {
-            return View("RauteVEPrevious", _dbData.GetContext());
-        }
-
         [HttpGet]
-        public ActionResult RauteVECurrent()
-        {
-            return PartialView("RauteVECurrent", _dbData.GetContext());
-        }
-
-        [HttpGet]
-        public ActionResult RauteVEPrevious()
-        {
-            return PartialView("RauteVEPrevious", 
-                _dbData.GetContext());
-        }
-
-        [HttpGet]
-        public ActionResult RauteTotalView()
+        public ActionResult RauteTotalView(string type)
         {
             return PartialView("RauteTotalView", 
-                new RauteTotalViewModel(_dbData.GetContext()
-                    .ShiftActuals.FirstOrDefault()));
+                new RauteTotalViewModel(
+                    _dbData.LatheContext.ShiftActuals.FirstOrDefault()));
         }
         [HttpGet]
-        public ActionResult RauteTableView()
+        public ActionResult RauteTableView(string type)
         {
             return PartialView("RauteTableView", 
-                _dbData.GetContext().BinsActuals.FirstOrDefault());
+                _dbData.LatheContext.BinsActuals.FirstOrDefault());
         }
         [HttpGet]
-        public ActionResult RauteChurakView()
+        public ActionResult RauteChurakView(string type)
         {
-            var context = _dbData.GetContext();
             return PartialView("RauteChurakView", 
                 new RauteChurakViewModel(
-                    context.ShiftActuals.FirstOrDefault(),
-                    context.BinsActuals.FirstOrDefault()));
+                    _dbData.LatheContext.ShiftActuals.FirstOrDefault(),
+                    _dbData.LatheContext.BinsActuals.FirstOrDefault()));
         }
         [HttpGet]
-        public ActionResult RauteShponView()
+        public ActionResult RauteShponView(string type)
         {
             return PartialView("RauteShponView", 
-                new RauteShponViewModel(_dbData.GetContext()
+                new RauteShponViewModel(_dbData.LatheContext
                     .ShiftActuals.FirstOrDefault()));
         }
     }

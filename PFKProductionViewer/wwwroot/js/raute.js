@@ -3,9 +3,10 @@ function navLinkOnClick(el) {
     console.log(el);
 }
 function UpdateRauteContent(route, divId) {
+    var type = getUrlParameter("type");
     $.ajax({
         type: 'GET',
-        url: '/RauteVE/' + route,
+        url: '/RauteVE/' + route + "?type=" + type,
         success: function (resp) {
             $("#"+divId).empty().append(resp);
         },
@@ -34,7 +35,6 @@ function tabLinkOnClick(event) {
 
 function SelectedTabUpdater() {
     UpdateRauteContent(selectedRoute, selectedViewTabId);
-    console.log(selectedViewTabId + " updated.");
 }
 
 jQuery(document).ready(function ($) {

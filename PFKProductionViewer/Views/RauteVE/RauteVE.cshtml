@@ -6,30 +6,44 @@
 <script type="text/javascript" src="~/js/raute.js"></script>
 <div class="text-center">
     <div id="contentView" class="text-center">
-        <div class="spinner-border text-warning" role="status">
-            <span class="sr-only">Loading...</span>
+        <h1 class="display-4 main-page-title">@ViewData["PageHead"]</h1>
+        <div class="container">
+            <ul class="nav nav-tabs" id="RauteCurrentTab">
+                <li class="nav-item">
+                    <a class="nav-link active raute-tab-link" data-toggle="tab" href="#total" style="color: #212529 !important;">Итого</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link raute-tab-link" data-toggle="tab" href="#churak" style="color: #212529 !important;">Чурак</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link raute-tab-link" data-toggle="tab" href="#tables" style="color: #212529 !important;">Столы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link raute-tab-link" data-toggle="tab" href="#shpon" style="color: #212529 !important;">Сырой шпон</a>
+                </li>
+            </ul>
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade active show text-center raute-tab-container" id="total">
+                    <div class="spinner-border text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="tab-pane fade text-center raute-tab-container" id="churak">
+                    <div class="spinner-border text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="tab-pane fade text-center raute-tab-container" id="tables">
+                    <div class="spinner-border text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="tab-pane fade text-center raute-tab-container" id="shpon">
+                    <div class="spinner-border text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<script>
-    function UpdateContent() {
-        var type = getUrlParameter("type");
-        var route = "RauteVECurrent"
-        if (type == "Previous")
-            route = "RauteVEPrevious"
-        $.ajax({
-            type: 'GET',
-            url: '/RauteVE/' + route,
-            success: function (resp) {
-                // Clear html from contentView ID
-                // Then append new response
-                $("#contentView").empty().append(resp);
-            },
-            error: function (resp) {
-                console.log(resp);
-            }
-        });
-    }
-    UpdateContent();
-    //setInterval(UpdateContent, 1000);
-</script>

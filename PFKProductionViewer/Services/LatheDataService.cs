@@ -10,7 +10,7 @@ namespace PFKProductionViewer.Services
 {
     public class LatheDataService : IDisposable
     {
-        private static LatheContext _context;
+        private LatheContext _context;
         private IConfiguration _config;
         private Thread _dataFetchThread;
         private bool _isDataFetching;
@@ -24,6 +24,14 @@ namespace PFKProductionViewer.Services
             _isDataFetching = true;
             _config = config;
             _subsciptions = new List<Action<LatheContext>>();
+        }
+
+        public LatheContext GetContext()
+        {
+            lock(_locker)
+            {
+                return _context;
+            }
         }
 
         public List<BinsActual> GetAllBins()
@@ -63,8 +71,6 @@ namespace PFKProductionViewer.Services
             {
                 lock(_locker)
                 {
-                    if (_context != null)
-                        _context.Dispose();
                     _context = new LatheContext(
                         _config.GetConnectionString("RauteVE"));
                 }

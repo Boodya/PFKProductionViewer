@@ -11,41 +11,38 @@ namespace PFKProductionViewer.Controllers
 {
     public class RauteVEController : Controller
     {
-        private IConfiguration _config { get; }
         private static LatheDataService _dbData;
-        public RauteVEController(IConfiguration config)
+        public RauteVEController(IServiceProvider serviceProvider)
         {
-            _config = config;
-            if(_dbData == null)
-                _dbData = new LatheDataService(_config);
+            _dbData = (LatheDataService)serviceProvider
+                .GetService(typeof(LatheDataService));
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string type)
         {
-            return View("RauteVECurrent");
+            return View("RauteVE");
         }
 
         public IActionResult Current()
         {
-            ViewData["Bins"] = _dbData.GetAllBins();
-            ViewData["CurrentShifts"] = _dbData.GetAllShiftsActual();
-            _dbData.SubscribeToDataUpdate(OnDBDataUpdated);
-            return View("RauteVECurrent");
+            return View("RauteVECurrent", _dbData.GetContext());
+        }
+
+        [HttpGet]
+        public ActionResult RauteVECurrent()
+        {
+            return PartialView("RauteVECurrent", _dbData.GetContext());
+        }
+
+        [HttpGet]
+        public ActionResult RauteVEPrevious()
+        {
+            return PartialView("RauteVEPrevious", _dbData.GetContext());
         }
 
         public IActionResult Previous()
         {
-            ViewData["Bins"] = _dbData.GetAllBins();
-            ViewData["PreviousShifts"] = _dbData.GetAllShiftsPrevious();
-            _dbData.SubscribeToDataUpdate(OnDBDataUpdated);
-            return View("RauteVEPrevious");
-        }
-
-        private void OnDBDataUpdated(LatheContext data)
-        {
-            ViewData["Bins"] = _dbData.GetAllBins();
-            ViewData["PreviousShifts"] = _dbData.GetAllShiftsPrevious();
-            ViewData["PreviousShifts"] = _dbData.GetAllShiftsPrevious();
+            return View("RauteVEPrevious", _dbData.GetContext());
         }
     }
 }

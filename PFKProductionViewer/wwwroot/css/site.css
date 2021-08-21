@@ -74,16 +74,11 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 .navbar {
-    background-color: #e6e6e6 !important;
-}
-
-.header-logo {
-    width: 50px;
-    height: 50px;
+    background-color: #003f00 !important;
 }
 
 .main-menu-button {
-    min-width: 250px;
+    min-width: 302px;
 }
 
 .main-menu-button-conatiner {
@@ -92,4 +87,26 @@ body {
 
 .main-page-title {
     margin-bottom: 50px;
+}
+
+.header-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.header-image {
+    max-height: 204px;
+    max-width: 980px;
+    height: 100%;
+    width: 100%;
+}
+
+.nav-link {
+    font: 400 13.3333px Arial;
+    font-size: 20px;
+    color: white !important;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }

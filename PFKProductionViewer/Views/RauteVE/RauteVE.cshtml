@@ -1,0 +1,34 @@
+﻿@model LatheContext
+@{
+    ViewData["Title"] = "RauteVE";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <div id="contentView" class="text-center">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+<script>
+    function UpdateContent() {
+        var type = getUrlParameter("type");
+        var route = "RauteVECurrent"
+        if (type == "Previous")
+            route = "RauteVEPrevious"
+        $.ajax({
+            type: 'GET',
+            url: '/RauteVE/' + route,
+            success: function (resp) {
+                // Clear html from contentView ID
+                // Then append new response
+                $("#contentView").empty().append(resp);
+            },
+            error: function (resp) {
+                console.log(resp);
+            }
+        });
+    }
+    UpdateContent();
+    //setInterval(UpdateContent, 1000);
+</script>

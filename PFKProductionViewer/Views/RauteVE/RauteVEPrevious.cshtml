@@ -1,8 +1,9 @@
-﻿
-@{
-    ViewData["Title"] = "RauteVEPrevious";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<h1>RauteVEPrevious</h1>
-
+﻿@model LatheContext
+<h1 class="display-4 main-page-title">Предыдущая смена</h1>
+<table>
+    <tr>
+        <td>
+            @Model.BinsActuals.FirstOrDefault().Bin1Sheets
+        </td>
+    </tr>
+</table>

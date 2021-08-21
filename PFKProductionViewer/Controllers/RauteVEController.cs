@@ -44,5 +44,26 @@ namespace PFKProductionViewer.Controllers
         {
             return View("RauteVEPrevious", _dbData.GetContext());
         }
+
+        [HttpGet]
+        public ActionResult RauteTotalView()
+        {
+            return PartialView("RauteTotalView", new RauteTotalViewModel());
+        }
+        [HttpGet]
+        public ActionResult RauteTableView()
+        {
+            return PartialView("RauteTableView", new RauteTableViewModel());
+        }
+        [HttpGet]
+        public ActionResult RauteChurakView()
+        {
+            return PartialView("RauteChurakView", new RauteChurakViewModel());
+        }
+        [HttpGet]
+        public ActionResult RauteShponView()
+        {
+            return PartialView("RauteShponView", new RauteShponViewModel());
+        }
     }
 }

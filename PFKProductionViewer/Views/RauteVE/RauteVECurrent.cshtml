@@ -1,40 +1,40 @@
 ﻿@model LatheContext
 <h1 class="display-4 main-page-title">Текущая смена</h1>
 <div class="container">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" id="RauteCurrentTab">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#total" style="color: #212529 !important;">Итого</a>
+            <a class="nav-link active raute-tab-link" data-toggle="tab" href="#total" style="color: #212529 !important;">Итого</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" data-toggle="tab" href="#churak" style="color: #212529 !important;">Чурак</a>
+            <a class="nav-link raute-tab-link" data-toggle="tab" href="#churak" style="color: #212529 !important;">Чурак</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#tables" style="color: #212529 !important;">Столы</a>
+            <a class="nav-link raute-tab-link" data-toggle="tab" href="#tables" style="color: #212529 !important;">Столы</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#shpon" style="color: #212529 !important;">Сырой шпон</a>
+            <a class="nav-link raute-tab-link" data-toggle="tab" href="#shpon" style="color: #212529 !important;">Сырой шпон</a>
         </li>
     </ul>
     <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade active show" id="total">
-            <p>total</p>
+        <div class="tab-pane fade active show text-center raute-tab-container" id="total">
+            <div class="spinner-border text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
-        <div class="tab-pane fade" id="churak">
-            <p>churak</p>
+        <div class="tab-pane fade text-center raute-tab-container" id="churak">
+            <div class="spinner-border text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
-        <div class="tab-pane fade" id="tables">
-            <p>tables</p>
+        <div class="tab-pane fade text-center raute-tab-container" id="tables">
+            <div class="spinner-border text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
-        <div class="tab-pane fade" id="shpon">
-            <p>shpon</p>
+        <div class="tab-pane fade text-center raute-tab-container" id="shpon">
+            <div class="spinner-border text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-    });
-    function navLinkOnClick(el) {
-        console.log(el);
-    }
-</script>

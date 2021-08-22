@@ -7,6 +7,12 @@
 <div class="text-center">
     <div id="contentView" class="text-center">
         <h1 class="display-4 main-page-title">@ViewData["PageHead"]</h1>
+        <button type="button" id="buttonLeft" class="btn btn-outline-warning" style="margin-bottom: 15px;" onclick="onLeftViewButtonClick()">
+            <span>Просмотреть предыдущую</span>
+        </button>
+        <button type="button" id="buttonRight" if class="btn btn-outline-warning" style="margin-bottom: 15px;" onclick="onRightViewButtonClick()">
+            <span>Просмотреть текущую</span>
+        </button>
         <div class="container">
             <ul class="nav nav-tabs" id="RauteCurrentTab">
                 <li class="nav-item">
@@ -47,3 +53,20 @@
         </div>
     </div>
 </div>
+<script>
+    function onLeftViewButtonClick() {
+        console.log("123");
+        location.href = location.origin + location.pathname + '?type=Previous';
+    }
+    function onRightViewButtonClick() {
+        location.href = location.origin + location.pathname + '?type=Current';
+    }
+    jQuery(document).ready(function ($) {
+        var type = getUrlParameter("type");
+        if (type == "Previous") {
+            $("#buttonLeft").hide();
+        } else if (type == "Current") {
+            $("#buttonRight").hide();
+        }
+    });
+</script>

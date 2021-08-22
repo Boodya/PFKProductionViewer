@@ -11,10 +11,10 @@ namespace PFKProductionViewer.Models
 {
     public partial class LatheContext : DbContext
     {
-        private string _connectionString { get; }
-        public LatheContext(string connectionString)
+        private readonly IConfiguration _config;
+        public LatheContext(IConfiguration config)
         {
-            _connectionString = connectionString;
+            _config = config;
         }
 
         public LatheContext(DbContextOptions<LatheContext> options)
@@ -30,7 +30,7 @@ namespace PFKProductionViewer.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(_connectionString);
+                optionsBuilder.UseSqlServer(_config.GetConnectionString("RauteVE"));
             }
         }
 

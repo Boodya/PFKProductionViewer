@@ -22,5 +22,11 @@ namespace PFKProductionViewer.Models
             OveralCollList = actualShift.OveralCollList;
             OveralVList = actualShift.OveralVList;
         }
+
+        public RauteTotalViewModel(ShiftPreviou previousShift) : base(previousShift)
+        {
+            OveralCollList = previousShift.OveralCollList;
+            OveralVList = previousShift.OveralVList;
+        }
     }
 }

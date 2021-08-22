@@ -29,5 +29,18 @@ namespace PFKProductionViewer.Models
             OveralVList12 = actualShift.OveralVList12;
             OveralVList13 = actualShift.OveralVList13;
         }
+
+        public RauteShponViewModel(ShiftPreviou previousShift)
+        {
+            CollPack11 = previousShift.CollPack11;
+            CollPack12 = previousShift.CollPack12;
+            CollPack13 = previousShift.CollPack13;
+            OveralCollList11 = previousShift.OveralCollList11;
+            OveralCollList12 = previousShift.OveralCollList12;
+            OveralCollList13 = previousShift.OveralCollList13;
+            OveralVList11 = previousShift.OveralVList11;
+            OveralVList12 = previousShift.OveralVList12;
+            OveralVList13 = previousShift.OveralVList13;
+        }
     }
 }

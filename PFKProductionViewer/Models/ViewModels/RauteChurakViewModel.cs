@@ -33,5 +33,20 @@ namespace PFKProductionViewer.Models
             MediumDCore = actualShift.MediumDCore;
             Thickness = actualBins.Thickness;
         }
+
+        public RauteChurakViewModel(ShiftPreviou previousShift, BinsActual actualBins)
+        {
+            PercentLossVeneer = previousShift.PercentLossVeneer;
+            RateMedium = previousShift.RateMedium;
+            ColBlock = previousShift.ColBlock;
+            MediumDBlock = previousShift.MediumDBlock;
+            VBlock = previousShift.VBlock;
+            VCil = previousShift.VCil;
+            VCore = previousShift.VCore;
+            LossCil = previousShift.LossCil;
+            LossCore = previousShift.LossCore;
+            MediumDCore = previousShift.MediumDCore;
+            Thickness = actualBins.Thickness;
+        }
     }
 }

@@ -21,7 +21,7 @@
                 <li class="nav-item active">
                     <a class="nav-link raute-tab-link" data-toggle="tab" href="#churak" style="color: #212529 !important;">Чурак</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="tablesLiNode">
                     <a class="nav-link raute-tab-link" data-toggle="tab" href="#tables" style="color: #212529 !important;">Столы</a>
                 </li>
                 <li class="nav-item">
@@ -65,6 +65,8 @@
         var type = getUrlParameter("type");
         if (type == "Previous") {
             $("#buttonLeft").hide();
+            $("#tables").hide();
+            $("#tablesLiNode").hide();
         } else if (type == "Current") {
             $("#buttonRight").hide();
         }
